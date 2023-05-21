@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Dorsia</title>
+    <link rel="icon" href="images/logo3.png" />
+    <script src="https://kit.fontawesome.com/e6777d854d.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="stylelogin.css" />
+</head>
+<body>
+    <div id="laforme">
+        <div class="container">
+            <div class="header">
+                <header>Sign Up</header>
+            </div>
+        <form action="loginD.html">
+            <div class="input-field">
+             <i class="fa-solid fa-user" style="color: #bc9c22;"></i>
+            <input type="text" id="in3" placeholder="first name" class="input" /><br />
+            </div>
+            <div class="input-field">
+                <i class="fa-solid fa-user" style="color: #bc9c22;"></i>
+            <input type="text" id="in4" placeholder="last name" class="input" /><br />
+           </div>
+            <div class="input-field">
+                <i class="fa-solid fa-envelope" style="color: #bc9c22;"></i>
+            <input type="email" id="in5" placeholder="Email" class="input" /><br />
+            </div>
+            <div class="input-field">
+             <i class="fa-solid fa-lock" style="color: #bc9c22;"></i>
+            <input type="password" id="in6" placeholder="Password" class="input"/><br />
+            </div>
+            <div class="input-field">
+            <i class="fa-solid fa-lock" style="color: #bc9c22;"></i>
+            <input type="password" id="in7" placeholder="Confirm Password"  class="input"/><br />
+            </div>
+            <span id="s3"></span><br />
+            <div class="input-field">
+                <input type="submit" class="submit"  onclick="return verifie()" value="Sign Up" />
+            </div>
+        </form>
+    </div>
+    </div>
+    <script>
+
+        var users = [{ username: 'aykm', password: 'aymane10' }, { username: 'doam', password: 'douaa12' }];
+        function add() {
+            var string1 = document.getElementById('in3').Value;
+            var string2 = document.getElementById('in4').Value;
+            var userNameIn3 = string1.charAt(0) + string1.charAt(1) + string2.charAt(0) + string2.charAt(1);
+            var passwordIn4 = document.getElementById('in4').Value;
+            var user = {};
+            user.username = userNameIn3;
+            user.password = passwordIn4;
+            users.push(user);
+            console.log(users);
+        }
+        function verifie() {
+            var FirstNameIn3 = document.getElementById('in3').value;
+            var LastNameIn4 = document.getElementById('in4').value;
+            var EmailIn5 = document.getElementById('in5').value;
+            var passwordIn6 = document.getElementById('in6').value;
+            var passConfIn7 = document.getElementById('in7').value;
+            if (FirstNameIn3 == '') {
+                document.getElementById('s3').innerHTML = "First Name must be filled out";
+                return false;
+            }
+            if (LastNameIn4 == '') {
+                document.getElementById('s3').innerHTML = "Last Name must be filled out";
+                return false;
+            }
+            if (EmailIn5 == '') {
+                document.getElementById('s3').innerHTML = "Email must be filled out";
+                return false;
+            }
+            if (passwordIn6 == '') {
+                document.getElementById('s3').innerHTML = "Password must be filled out";
+                return false;
+            }
+
+            if (passConfIn7 == '') {
+                document.getElementById('s3').innerHTML = "Password must be filled out";
+                return false;
+            }
+
+            if (passwordIn6 == passConfIn7) {
+                add();
+                return true;
+                }
+            
+            document.getElementById('s3').innerHTML = "Password does not match";
+            return false;
+        }
+
+    </script>
+</body>
+</html>
